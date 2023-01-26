@@ -9,16 +9,16 @@ export default function Board() {
   const [board, setBoard] = useState(() => shuffle([...emojis, ...emojis]));
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
-  const [clicks, setClicks] = useState(0);
+  const [flippedCardsQty, setflippedCardsQty] = useState(0);
 
   const handleTapCards = (id) => {
     if (selectedCards.length >= 2 || selectedCards.includes(id)) return;
     setSelectedCards([...selectedCards, id]);
-    setClicks(clicks + 1);
+    setflippedCardsQty(flippedCardsQty + 1);
   };
 
   const resetGame = () => {
-    setClicks(0);
+    setflippedCardsQty(0);
     setSelectedCards([]);
     setMatchedCards([]);
     setBoard(shuffle([...emojis, ...emojis]));
@@ -48,8 +48,8 @@ export default function Board() {
       <Text className='text-4xl font-bold text-white text-decoration-solid'>
         {playerWin() ? 'Congratulations! 🎉' : 'Memory 🧠 💭'}
       </Text>
-      <Text className='text-2xl font-bold text-white text-decoration-solid'>
-        Clicks: {clicks}
+      <Text className='text-xl text-white text-decoration-solid'>
+        Flipped Cards: {flippedCardsQty}
       </Text>
       <View className='flex flex-row flex-wrap justify-center pt-10 pb-8'>
         {board?.map(({ emoji }, id) => {
