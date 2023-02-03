@@ -1,4 +1,13 @@
+# Dependency directories
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
 node_modules/
+
 .expo/
 dist/
 npm-debug.*
@@ -9,6 +18,3 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-
-# macOS
-.DS_Store
